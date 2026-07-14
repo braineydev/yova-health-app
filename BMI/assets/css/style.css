@@ -1,0 +1,538 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
+
+:root {
+  --bg-main: #09090b;
+  --surface-1: #18181b;
+  --surface-2: #27272a;
+  --accent: #ff5e00;
+  --text-main: #ffffff;
+  --text-muted: #a1a1aa;
+  --color-under: #d946ef;
+  --color-normal: #10b981;
+  --color-over: #f59e0b;
+  --color-obese: #ef4444;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1180px;
+}
+
+.tracking-tight {
+  letter-spacing: -0.05em;
+}
+.text-accent {
+  color: var(--accent) !important;
+}
+.bg-accent {
+  background-color: var(--accent) !important;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--surface-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  border: 1px solid var(--surface-2);
+}
+
+.bento-card {
+  background-color: var(--surface-1);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.bento-input-group label,
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-segment {
+  padding: 1rem;
+  border-radius: 24px;
+  background: var(--surface-2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.form-control,
+.form-select {
+  background-color: var(--surface-2);
+  border: 2px solid transparent;
+  color: var(--text-main);
+  border-radius: 16px;
+  padding: 0.85rem 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #303036;
+  border-color: var(--accent);
+  box-shadow: none;
+  color: white;
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.btn-print {
+  background: rgba(255, 94, 0, 0.16);
+  color: #fff;
+  border: 1px solid rgba(255, 94, 0, 0.42);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  padding: 0.75rem 1.15rem;
+  border-radius: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-print:hover {
+  background: rgba(255, 94, 0, 0.18);
+  transform: translateY(-1px);
+}
+
+.btn-accent:hover {
+  transform: scale(0.98);
+  filter: brightness(1.1);
+  background-color: var(--accent);
+  color: #000;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+}
+
+.bento-scale-track {
+  height: 14px;
+  border-radius: 20px;
+  background: linear-gradient(
+    to right,
+    var(--color-under) 0%,
+    var(--color-under) 20%,
+    var(--color-normal) 25%,
+    var(--color-normal) 55%,
+    var(--color-over) 60%,
+    var(--color-over) 80%,
+    var(--color-obese) 85%,
+    var(--color-obese) 100%
+  );
+  position: relative;
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
+}
+
+.bento-scale-marker {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: 0%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  transition: left 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  opacity: 0;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--surface-2);
+  border-radius: 16px;
+}
+
+.text-secondary {
+  color: var(--text-muted) !important;
+}
+
+.text-white {
+  color: var(--text-main) !important;
+}
+
+.print-only {
+  display: none !important;
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
+}
+
+@media print {
+  :root {
+    color: #000;
+    background: #fff;
+  }
+
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+  }
+
+  body > :not(.print-only) {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+    position: relative;
+    width: 100%;
+  }
+
+  .print-report {
+    display: block !important;
+  }
+
+  .print-report,
+  .print-report * {
+    visibility: visible;
+  }
+
+  .print-report {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    color: #000;
+  }
+
+  .print-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .print-logo {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #000;
+    text-transform: uppercase;
+  }
+
+  .print-logo .text-accent {
+    color: var(--accent) !important;
+  }
+
+  .print-subtitle {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  .print-meta {
+    text-align: right;
+    color: #444;
+    font-size: 0.95rem;
+  }
+
+  .print-category,
+  .print-date {
+    margin: 0;
+    color: #111;
+    font-weight: 600;
+  }
+
+  .print-big-card {
+    background: #fcfbf7;
+    border-color: #e8e3d7;
+  }
+
+  .print-hero-label {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: #666;
+  }
+
+  .print-hero-bmi {
+    margin: 0;
+    font-size: 4rem;
+    line-height: 0.95;
+    color: #111;
+  }
+
+  .print-status {
+    padding: 0.9rem 1.4rem;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-weight: 700;
+    color: #000;
+    min-width: 140px;
+    text-align: center;
+  }
+
+  .print-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+
+  .print-card {
+    flex: 1 1 45%;
+    min-width: 260px;
+    border-color: #e8e3d7;
+    background: #fff;
+  }
+
+  .print-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #111;
+    letter-spacing: 0.02em;
+  }
+
+  .print-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .print-card ul li {
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    position: relative;
+    color: #222;
+  }
+
+  .print-card ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-normal);
+  }
+
+  .print-card-phrase {
+    margin: 1rem 0 0;
+    color: #333;
+    font-size: 0.95rem;
+  }
+
+  .print-footer {
+    display: block !important;
+    margin-top: 28px;
+    color: #777;
+    font-size: 12px;
+  }
+
+  .task-item,
+  .bento-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  .print-footer {
+    display: block !important;
+    text-align: center;
+    margin-top: 32px;
+    font-size: 12px;
+    color: #555 !important;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 12px;
+  }
+
+  header,
+  #bmiForm,
+  .user-avatar,
+  .btn,
+  .btn-print,
+  .form-control,
+  .form-select,
+  .task-item i,
+  .status-pill,
+  .icon-box,
+  .bento-input-group label {
+    display: none !important;
+  }
+
+  .bento-card {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+
+  .bento-card h2,
+  .bento-card h5,
+  .bento-card p,
+  .bento-card li,
+  .bento-card span {
+    color: #000 !important;
+  }
+
+  .print-header,
+  .print-footer,
+  .bento-card,
+  .status-badge,
+  .text-accent {
+    color: inherit !important;
+  }
+
+  .bento-scale-track {
+    background: #f2f2f2 !important;
+    opacity: 1 !important;
+  }
+
+  .bento-scale-marker {
+    background: #000 !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  .status-badge {
+    display: inline-flex !important;
+    opacity: 1 !important;
+    color: #000 !important;
+    background: #f3f3f3 !important;
+    border: 1px solid #ddd !important;
+  }
+
+  .row.g-4 {
+    gap: 12px !important;
+  }
+
+  .print-category,
+  .print-date,
+  .print-subtitle,
+  .print-logo {
+    color: #000 !important;
+  }
+
+  .print-category .text-accent,
+  .print-date .text-accent,
+  .print-subtitle .text-accent {
+    color: var(--accent) !important;
+  }
+
+  .col-md-6 {
+    flex: 0 0 48% !important;
+    max-width: 48% !important;
+  }
+
+  .col-12 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .task-item,
+  .bento-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-header {
+    display: block !important;
+  }
+
+  .print-footer {
+    display: block !important;
+    text-align: center;
+    margin-top: 24px;
+    font-size: 12px;
+    color: #555 !important;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 12px;
+  }
+
+  .text-accent {
+    color: var(--accent) !important;
+  }
+
+  .text-muted {
+    color: #555 !important;
+  }
+
+  @page {
+    margin: 12mm;
+    size: auto;
+  }
+
+  @page {
+    margin: 12mm;
+    size: auto;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
